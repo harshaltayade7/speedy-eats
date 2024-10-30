@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useAppDispatch, useAppSelector } from "../store";
+import { useAppDispatch, useAppSelector } from "../../store";
 import {
   toggleCartSidebar,
   toggleLocationModal,
   toggleSidebar,
-} from "../store/slices/navbarSlice";
+} from "../../store/slices/navbarSlice";
 
 const NavbarComp: React.FC = () => {
   const dispatch = useAppDispatch();

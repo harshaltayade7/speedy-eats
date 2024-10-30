@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
-import { useAppDispatch, useAppSelector } from "../store";
-import { toggleLocationModal } from "../store/slices/navbarSlice";
+import { useAppDispatch, useAppSelector } from "../../store";
+import { toggleLocationModal } from "../../store/slices/navbarSlice";
 
 const LocationModal: React.FC = () => {
   const { locationModelOpen } = useAppSelector((state) => state.navbar);

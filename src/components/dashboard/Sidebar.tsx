@@ -1,8 +1,8 @@
 import React from "react";
 import { Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom"; // Import Link for navigation
-import { useAppDispatch, useAppSelector } from "../store";
-import { toggleSidebar } from "../store/slices/navbarSlice";
+import { useAppDispatch, useAppSelector } from "../../store";
+import { toggleSidebar } from "../../store/slices/navbarSlice";
 
 const Sidebar: React.FC = () => {
   const { sidebarOpen } = useAppSelector((state) => state.navbar);
@@ -64,7 +64,6 @@ const Sidebar: React.FC = () => {
             About
           </Link>
         </div>
-        =
         <div className="mt-3">
           <button
             className="btn btn-danger"

@@ -1,9 +1,13 @@
 // src/App.tsx
 import React from "react";
 import { Route, Routes, Link } from "react-router-dom";
-import Home from "./pages/Home"; // Importing Home component from pages folder
-import About from "./pages/About"; // If you have an About.tsx in pages
-import NotFound from "./pages/NotFound"; // Optional: If you have a NotFound component
+import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import NotFound from "./pages/NotFound";
+import "./App.css";
 
 function App() {
   return (
@@ -11,7 +15,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="*" element={<NotFound />} /> Optional: for 404 pages
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/dashboard" element={<Dashboard />} />{" "}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

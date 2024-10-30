@@ -1,7 +1,7 @@
 import React from "react";
 import { Offcanvas } from "react-bootstrap";
-import { toggleCartSidebar } from "../store/slices/navbarSlice";
-import { useAppDispatch, useAppSelector } from "../store";
+import { toggleCartSidebar } from "../../store/slices/navbarSlice";
+import { useAppDispatch, useAppSelector } from "../../store";
 
 const CartSidebar: React.FC = () => {
   const { cartSidebarOpen } = useAppSelector((state) => state.navbar);
