@@ -5,6 +5,7 @@ import {
   toggleLocationModal,
   toggleSidebar,
 } from "../../store/slices/navbarSlice";
+import { Link } from "react-router-dom";
 
 const NavbarComp: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -16,7 +17,9 @@ const NavbarComp: React.FC = () => {
       >
         <i className="bi bi-list"></i>
       </button>
-      <h3 className="d-flex align-items-center">SpeedyEats</h3>
+      <Link to="/" className="text-decoration-none">
+        <h3 className="text-primary text-center mb-0">SpeedyEats</h3>
+      </Link>
       <button
         onClick={() => dispatch(toggleLocationModal())}
         className="btn d-flex align-items-center"
