@@ -3,32 +3,33 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { USER_SERVICE_BASE_URL } from "../config/constants";
+import { loginUser } from "../store/slices/authSlice";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../store";
 
 const Signup: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
 
   const handleSignup = async (event: React.FormEvent) => {
     event.preventDefault();
+    const result = await axios.post(`${USER_SERVICE_BASE_URL}/user`, {
+      username,
+      password,
+    });
 
-    try {
-      const result = await axios.post(`${USER_SERVICE_BASE_URL}/user`, {
-        username,
-        password,
-      });
-
-      if (result.data === "signup unsuccessful") {
-        setError("Signup unsuccessful. Please try a different username.");
-      } else {
-        localStorage.setItem("jwt", result.data);
-        setError("");
-        navigate("/dashboard");
-      }
-    } catch (error) {
-      console.error("Signup error:", error);
-      setError("An error occurred during signup. Please try again later.");
+    if (result.data === "signup unsuccessful") {
+      setError("Signup unsuccessful. Please try a different username.");
+    } else {
+      localStorage.setItem("jwt", result.data);
+      setError("");
+      dispatch(loginUser({ username, password }));
+      setUsername("");
+      setPassword("");
+      navigate("/dashboard");
     }
   };
 

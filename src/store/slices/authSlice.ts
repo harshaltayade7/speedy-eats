@@ -5,11 +5,13 @@ import { USER_SERVICE_BASE_URL } from "../../config/constants";
 interface AuthState {
   token: string | null;
   error: string | null;
+  username: string | null;
 }
 
 const initialState: AuthState = {
   token: localStorage.getItem("jwt") || null,
   error: null,
+  username: null,
 };
 
 interface UserCredentials {
@@ -46,6 +48,7 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(loginUser.fulfilled, (state, action) => {
       state.token = action.payload;
+      state.username = action.meta.arg.username;
       state.error = null;
     });
     builder.addCase(loginUser.rejected, (state, action) => {

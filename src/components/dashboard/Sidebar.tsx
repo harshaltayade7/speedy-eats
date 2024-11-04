@@ -7,6 +7,7 @@ import { logout } from "../../store/slices/authSlice"; // Import logout action
 
 const Sidebar: React.FC = () => {
   const { sidebarOpen } = useAppSelector((state) => state.navbar);
+  const username = useAppSelector((state) => state.authSlice.username);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -30,7 +31,7 @@ const Sidebar: React.FC = () => {
               style={{ fontSize: "24px", marginRight: "10px" }}
             ></i>
             <div>
-              <h5>User Name</h5>
+              <h5>{username}</h5>
               <Link to="/manage-account" className="text-muted">
                 Manage Account
               </Link>
