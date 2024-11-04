@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../store";
+import React from "react";
+import { useAppDispatch } from "../../store";
 import {
   toggleCartSidebar,
   toggleLocationModal,
@@ -35,7 +35,7 @@ const NavbarComp: React.FC = () => {
         onClick={() => dispatch(toggleCartSidebar())}
         className="btn btn-primary"
       >
-        <i className="bi bi-cart"></i> {/* Cart icon */}
+        <i className="bi bi-cart"></i>
       </button>
     </div>
   );

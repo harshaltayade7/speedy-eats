@@ -6,7 +6,7 @@ const NotFound: React.FC = () => {
     <div style={{ textAlign: "center" }}>
       <h1>404 - Page Not Found</h1>
       <p>Oops! The page you're looking for doesn't exist.</p>
-      <Link to="/" className="btn btn-primary">
+      <Link to="/dashboard" className="btn btn-primary">
         Go to Home
       </Link>
     </div>

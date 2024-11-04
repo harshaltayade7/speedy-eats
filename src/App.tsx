@@ -1,6 +1,6 @@
 // src/App.tsx
-import React from "react";
-import { Route, Routes, Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Route, Routes, Link, useNavigate } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -8,8 +8,17 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
 import "./App.css";
+import { isEmpty } from "lodash";
 
 function App() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isEmpty(localStorage.getItem("jwt"))) {
+      navigate("/");
+    }
+  }, []);
+
   return (
     <div>
       <Routes>

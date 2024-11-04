@@ -1,12 +1,20 @@
 import React from "react";
 import { Offcanvas } from "react-bootstrap";
-import { Link } from "react-router-dom"; // Import Link for navigation
+import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { toggleSidebar } from "../../store/slices/navbarSlice";
+import { logout } from "../../store/slices/authSlice"; // Import logout action
 
 const Sidebar: React.FC = () => {
   const { sidebarOpen } = useAppSelector((state) => state.navbar);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logout()); // Dispatch the logout action
+    dispatch(toggleSidebar());
+    navigate("/");
+  };
 
   return (
     <Offcanvas
@@ -65,10 +73,7 @@ const Sidebar: React.FC = () => {
           </Link>
         </div>
         <div className="mt-3">
-          <button
-            className="btn btn-danger"
-            onClick={() => dispatch(toggleSidebar())}
-          >
+          <button className="btn btn-danger" onClick={handleLogout}>
             Sign Out
           </button>
         </div>

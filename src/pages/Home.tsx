@@ -45,19 +45,6 @@ const Home: React.FC = () => {
             </div>
           </div>
         </nav>
-
-        {/* Main Content */}
-        <div className="container-fluid position-relative home-content">
-          {/* Search Box */}
-          <div className="search-box d-flex col-md-8">
-            <input
-              type="text"
-              className="form-control form-control-lg"
-              placeholder="Enter delivery address"
-            />
-            <button className="btn btn-primary btn-lg ms-2">Search</button>
-          </div>
-        </div>
       </div>
       <div className="container mt-5">
         <div className="row">

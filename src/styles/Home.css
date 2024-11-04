@@ -1,6 +1,6 @@
 
 .home-container {
-    height: 50vh;
+    height: 25vh;
     background: url('/src/assets/home_background.jpg') no-repeat center center/cover;
     display: flex;
     flex-direction: column;
